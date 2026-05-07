@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+  /* Tus variables aquí abajo */
+  --color-brand: #2563eb;
+}
