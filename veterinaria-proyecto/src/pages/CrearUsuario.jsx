@@ -44,7 +44,7 @@ const CrearUsuario = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put("(http://3.21.127.175:8081/mascotas)")
+      await axios.put("[http://3.21.127.175:8081/mascotas](http://3.21.127.175:8081/mascotas)")
       alert("¡Mascota registrada con éxito!");
       
       setMascota(estadoInicial); 
