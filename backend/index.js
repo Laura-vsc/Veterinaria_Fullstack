@@ -7,14 +7,13 @@ const app = express();
 
 // Middlewares
 app.use(cors());
-app.use(express.json()); // Permite leer el cuerpo de las peticiones JSON
-
+app.use(express.json());
 // Configuración de la Base de Datos (XAMPP)
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '', // Por defecto en XAMPP está vacío
-    database: 'veterinaria_db'
+    password: 'Admin123*',
+    database: 'veterinaria'
 });
 
 // Probar conexión a MySQL
