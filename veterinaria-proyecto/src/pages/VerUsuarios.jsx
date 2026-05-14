@@ -29,13 +29,7 @@ const VerUsuarios = () => {
         const res = await axios.get("[http://3.21.127.175:8081/mascotas](http://3.21.127.175:8081/mascotas)");
         setMascotas(res.data);
       } catch (err) {
-        console.error("Error al cargar datos:", err); import imgBeagle from '../assets/beagle.jpg';
-        import imgBritishShorthair from '../assets/british_shorthair.jpg';
-        import imgPastorAleman from '../assets/pastor_aleman.jpg';
-        import imgPersa from '../assets/persa.jpg';
-        import imgPitbull from '../assets/pitbull.jpg';
-        import imgSiames from '../assets/siames.jpg';
-
+        console.error("Error al cargar datos:", err);
       }
     };
     cargarMascotas();
