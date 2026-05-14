@@ -44,7 +44,7 @@ const EditarUsuario = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://3.21.127.175:8081/mascotas/${id}`, mascota);
+      await axios.post(`http://3.21.127.175:8081/mascotas/${id}`, mascota);
       alert("¡Registro actualizado correctamente!");
       navigate('/usuarios');
     } catch (err) {
