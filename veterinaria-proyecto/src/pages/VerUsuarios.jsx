@@ -26,7 +26,7 @@ const VerUsuarios = () => {
   useEffect(() => {
     const cargarMascotas = async () => {
       try {
-        const res = await axios.get("http://localhost:8081/mascotas");
+        const res = await axios.get("[http://3.21.127.175:8081/mascotas](http://3.21.127.175:8081/mascotas)");
         setMascotas(res.data);
       } catch (err) {
         console.error("Error al cargar datos:", err);import imgBeagle from '../assets/beagle.jpg';
@@ -45,7 +45,7 @@ import imgSiames from '../assets/siames.jpg';
   const eliminarMascota = async (id, nombre) => {
     if (window.confirm(`¿Estás seguro de eliminar a ${nombre}?`)) {
       try {
-        await axios.delete(`http://3.21.127.175:8081/mascotas${id}`);
+        await axios.delete(`http://3.21.127.175:8081/mascotas/${id}`);
         setMascotas(mascotas.filter(m => m.id !== id));
       } catch (err) {
         console.error("Error al eliminar:", err);

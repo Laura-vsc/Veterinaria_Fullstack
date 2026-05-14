@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const EditarUsuario = () => {
-  const { id } = useParams(); // Obtenemos el ID de la URL
+  const { id } = useParams();
   const navigate = useNavigate();
   
   const [mascota, setMascota] = useState({
@@ -32,7 +32,6 @@ const EditarUsuario = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    // Mantenemos la validación de los 10 números
     if (name === "telefonoDueno") {
       if (/^[0-9]*$/.test(value) && value.length <= 10) {
         setMascota({ ...mascota, [name]: value });
@@ -45,9 +44,9 @@ const EditarUsuario = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:8081/mascotas/${id}`, mascota);
+      await axios.put(`http://3.21.127.175:8081/mascotas/${id}`, mascota);
       alert("¡Registro actualizado correctamente!");
-      navigate('/usuarios'); // Redirige a la lista
+      navigate('/usuarios');
     } catch (err) {
       console.error(err);
       alert("Error al actualizar");

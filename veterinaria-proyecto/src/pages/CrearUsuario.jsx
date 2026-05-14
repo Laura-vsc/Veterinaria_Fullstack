@@ -18,7 +18,6 @@ const imagenesRazas = {
 };
 
 const CrearUsuario = () => {
-  // Estado inicial para poder reutilizarlo al limpiar
   const estadoInicial = {
     nombreMascota: '',
     edad: '',
@@ -34,7 +33,6 @@ const CrearUsuario = () => {
     const { name, value } = e.target;
 
     if (name === "telefonoDueno") {
-      // Validación: Solo números y máximo 10 dígitos
       if (/^[0-9]*$/.test(value) && value.length <= 10) {
         setMascota({ ...mascota, [name]: value });
       }
@@ -49,7 +47,6 @@ const CrearUsuario = () => {
       await axios.put("[http://3.21.127.175:8081/mascotas](http://3.21.127.175:8081/mascotas)")
       alert("¡Mascota registrada con éxito!");
       
-      // AQUÍ LIMPIAMOS EL FORMULARIO
       setMascota(estadoInicial); 
       
       // Opcional: resetear los campos del HTML manualmente si no usas value={mascota.campo}
