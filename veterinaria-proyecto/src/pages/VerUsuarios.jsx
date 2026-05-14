@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-
 import imgPitbull from '../assets/pitbull.jpg';
 import imgPastorAleman from '../assets/pastor_aleman.jpg';
 import imgBeagle from '../assets/beagle.jpg';
@@ -20,22 +19,28 @@ const imagenesRazas = {
 };
 
 const VerUsuarios = () => {
+  // Inicializamos siempre como un array vacío
   const [mascotas, setMascotas] = useState([]);
 
-  // Cargar datos desde el backend
   useEffect(() => {
     const cargarMascotas = async () => {
       try {
-        const res = await axios.get("(http://3.21.127.175:8081/mascotas)");
-        setMascotas(res.data);
+        const res = await axios.get("http://3.21.127.175:8081/mascotas");
+        
+        if (Array.isArray(res.data)) {
+          setMascotas(res.data);
+        } else {
+          console.error("La respuesta no es un arreglo:", res.data);
+          setMascotas([]);
+        }
       } catch (err) {
         console.error("Error al cargar datos:", err);
+        setMascotas([]); 
       }
     };
     cargarMascotas();
   }, []);
 
-  // Función para eliminar
   const eliminarMascota = async (id, nombre) => {
     if (window.confirm(`¿Estás seguro de eliminar a ${nombre}?`)) {
       try {
@@ -54,7 +59,8 @@ const VerUsuarios = () => {
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {mascotas.length === 0 ? (
+        {/* Usamos mascotas?.length por seguridad extra */}
+        {(mascotas && mascotas.length === 0) ? (
           <p className="text-gray-500 italic text-center col-span-full">
             No hay mascotas registradas todavía en la base de datos.
           </p>
@@ -63,8 +69,8 @@ const VerUsuarios = () => {
             <div key={m.id} className="bg-white p-6 rounded-2xl shadow-lg border-l-8 border-blue-500 hover:shadow-2xl transition-all duration-300">
               <div className="flex justify-between items-start">
                 <div className="flex items-center gap-4">
-                  {/* IMAGEN DE LA RAZA EN LA CARD */}
-                  <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-blue-100 bg-gray-50 -shrink-0">
+                  {/* Corregido: shrink-0 en lugar de -shrink-0 */}
+                  <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-blue-100 bg-gray-50 shrink-0">
                     {imagenesRazas[m.raza] ? (
                       <img
                         src={imagenesRazas[m.raza]}
@@ -95,7 +101,6 @@ const VerUsuarios = () => {
                 <p className="text-sm text-gray-400 truncate"><b>Email:</b> {m.correoDueno}</p>
               </div>
 
-              {/* BOTONES DE ACCIÓN */}
               <div className="flex gap-2">
                 <Link
                   to={`/editar/${m.id}`}
