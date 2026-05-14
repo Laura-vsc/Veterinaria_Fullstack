@@ -1,14 +1,12 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { Dog } from 'lucide-react';
 
 import imgPitbull from '../assets/pitbull.jpg'; 
 import imgPastorAleman from '../assets/pastor_aleman.jpg';
-import imgBeagle from '../assets/beagle.jpg';   
+import imgBeagle from "../assets/beagle.jpg";   
 import imgSiames from '../assets/siames.jpg';
 import imgPersa from '../assets/persa.jpg';
-import imgGatoComun from '../assets/gato_comun.jpg';
-
+import imgBritishShorthair from '../assets/british_shorthair.jpg';
 
 const imagenesRazas = {
   "pitbull": imgPitbull,
@@ -16,7 +14,7 @@ const imagenesRazas = {
   "beagle": imgBeagle,    
   "siames": imgSiames,
   "persa": imgPersa,
-  "gatoComun": imgGatoComun
+  "british shorthair": imgBritishShorthair,
 };
 
 const CrearUsuario = () => {
@@ -48,7 +46,7 @@ const CrearUsuario = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8081/mascotas", mascota);
+      await axios.put("[http://3.21.127.175:8081/mascotas](http://3.21.127.175:8081/mascotas)")
       alert("¡Mascota registrada con éxito!");
       
       // AQUÍ LIMPIAMOS EL FORMULARIO
@@ -87,7 +85,7 @@ const CrearUsuario = () => {
             <option value="beagle">Beagle</option>
             <option value="siames">Siamés</option>
             <option value="persa">Persa</option>
-            <option value="gatoComun">Gato Común</option>
+            <option value="british shorthair">Británico Pelo Corto</option>
           </select>
         </div>
 

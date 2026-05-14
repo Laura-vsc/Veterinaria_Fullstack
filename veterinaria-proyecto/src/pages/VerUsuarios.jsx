@@ -2,22 +2,21 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-// Importación de imágenes desde assets
+
 import imgPitbull from '../assets/pitbull.jpg'; 
 import imgPastorAleman from '../assets/pastor_aleman.jpg';
 import imgBeagle from '../assets/beagle.jpg';   
 import imgSiames from '../assets/siames.jpg';
 import imgPersa from '../assets/persa.jpg';
-import imgGatoComun from '../assets/gato_comun.jpg';
+import imgBritishShorthair from '../assets/british_shorthair.jpg';
 
-// Diccionario de imágenes
 const imagenesRazas = {
   "pitbull": imgPitbull,
   "pastor aleman": imgPastorAleman,
   "beagle": imgBeagle,    
   "siames": imgSiames,
   "persa": imgPersa,
-  "gatoComun": imgGatoComun
+  "british shorthair": imgBritishShorthair,
 };
 
 const VerUsuarios = () => {
@@ -30,7 +29,13 @@ const VerUsuarios = () => {
         const res = await axios.get("http://localhost:8081/mascotas");
         setMascotas(res.data);
       } catch (err) {
-        console.error("Error al cargar datos:", err);
+        console.error("Error al cargar datos:", err);import imgBeagle from '../assets/beagle.jpg';
+import imgBritishShorthair from '../assets/british_shorthair.jpg';
+import imgPastorAleman from '../assets/pastor_aleman.jpg';
+import imgPersa from '../assets/persa.jpg';
+import imgPitbull from '../assets/pitbull.jpg';
+import imgSiames from '../assets/siames.jpg';
+
       }
     };
     cargarMascotas();
@@ -40,7 +45,7 @@ const VerUsuarios = () => {
   const eliminarMascota = async (id, nombre) => {
     if (window.confirm(`¿Estás seguro de eliminar a ${nombre}?`)) {
       try {
-        await axios.delete(`http://localhost:8081/mascotas/${id}`);
+        await axios.delete(`http://3.21.127.175:8081/mascotas${id}`);
         setMascotas(mascotas.filter(m => m.id !== id));
       } catch (err) {
         console.error("Error al eliminar:", err);
