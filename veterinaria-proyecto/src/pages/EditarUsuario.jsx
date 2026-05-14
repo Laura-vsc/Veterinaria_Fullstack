@@ -20,7 +20,6 @@ const EditarUsuario = () => {
     const obtenerMascota = async () => {
       try {
         const res = await axios.get("(http://3.21.127.175:8081/mascotas)")
-        // Buscamos la mascota específica en el array que devuelve el backend
         const encontrada = res.data.find(m => m.id === parseInt(id));
         if (encontrada) setMascota(encontrada);
       } catch (err) {

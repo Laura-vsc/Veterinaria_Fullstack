@@ -22,7 +22,7 @@ db.connect((err) => {
         console.error('Error de conexión a la BD:', err);
         return;
     }
-    console.log('Conectado a la base de datos MySQL en XAMPP');
+    console.log('Conectado a la base de datos MySQL');
 });
 
 // --- RUTAS DEL CRUD ---
