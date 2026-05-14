@@ -85,7 +85,6 @@ app.put("/mascotas/:id", (req, res) => {
     });
 });
 
-// Puerto de escucha (usamos 8081 para no chocar con React)
 const PORT = 8081;
 app.listen(PORT, () => {
     console.log(`🚀 Servidor backend escuchando en http://localhost:${PORT}`);
