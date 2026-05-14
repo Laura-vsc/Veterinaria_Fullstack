@@ -67,7 +67,7 @@ const CrearUsuario = () => {
             {mascota.raza && imagenesRazas[mascota.raza] ? (
               <img src={imagenesRazas[mascota.raza]} alt="Raza" className="w-full h-full object-cover" />
             ) : (
-              <Dog size={80} className="text-gray-300" />
+              <span className="text-6xl">🐶</span>
             )}
           </div>
           <select 
