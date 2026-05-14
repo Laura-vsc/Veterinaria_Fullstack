@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import imgPitbull from '../assets/pitbull.jpg'; 
 import imgPastorAleman from '../assets/pastor_aleman.jpg';
-import imgBeagle from "../assets/beagle.jpg";   
+import imgBeagle from '../assets/beagle.jpg';
 import imgSiames from '../assets/siames.jpg';
 import imgPersa from '../assets/persa.jpg';
 import imgBritishShorthair from '../assets/british_shorthair.jpg';
